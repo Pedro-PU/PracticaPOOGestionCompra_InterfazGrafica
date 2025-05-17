@@ -1,5 +1,7 @@
 package ec.edu.ups.poo.ventanasMain;
 
+import ec.edu.ups.poo.ventanas.VentanaProveedor;
+
 import java.awt.*;
 import java.awt.event.*;
 
@@ -108,7 +110,7 @@ public class VentanaGerenteCompras extends Frame {
     // Métodos vacíos para acciones (implementa tu lógica real aquí)
     private void registrarProveedor() {
         System.out.println(">> Acción: Registrar Proveedor");
-        //VentanaProveedor vPro = new VentanaProveedor();
+        VentanaProveedor vPro = new VentanaProveedor();
         dispose();
     }
 
