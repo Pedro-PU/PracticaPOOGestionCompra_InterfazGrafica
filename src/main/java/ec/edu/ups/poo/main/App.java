@@ -1,6 +1,7 @@
 package ec.edu.ups.poo.main;
 
 import ec.edu.ups.poo.clases.*;
+import ec.edu.ups.poo.ventanasMain.VentanaPrincipal;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +12,9 @@ public class App {
     private static List<ProductoAlimento> productosAlimento = new ArrayList<>();
     private static List<ProductoTecnologia> productosTecnologia = new ArrayList<>();
     public static void main(String[] args) {
+
+        VentanaPrincipal vP = new VentanaPrincipal();
+
         Departamento departamentoSolicitudes = new Departamento("Dep001", "Solicitudes");
         Departamento departamentoGerencia = new Departamento("Dep002", "Gerencia");
 
