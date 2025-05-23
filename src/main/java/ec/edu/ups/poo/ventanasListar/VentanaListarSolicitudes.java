@@ -50,11 +50,7 @@ public class VentanaListarSolicitudes extends Frame {
         } else {
             StringBuilder sb = new StringBuilder();
             for (SolicitudCompra s : solicitudes) {
-                sb.append("ID: ").append(s.getIdSolicitud()).append("\n")
-                        .append("Fecha: ").append(new SimpleDateFormat("yyyy-MM-dd").format(s.getFecha().getTime())).append("\n")
-                        .append("Estado: ").append(s.getEstado()).append("\n")
-                        .append("Solicitante: ").append(s.getSolicitante().getNombre()).append("\n")
-                        .append("Total: ").append(s.calcularTotal()).append("\n")
+                sb.append(s.toString()).append("\n")
                         .append("------------------------\n");
             }
             areaSolicitudes.setText(sb.toString());

@@ -100,5 +100,31 @@ public class SolicitudCompra implements Calculable{
         this.aprobador = aprobador;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("ID Solicitud: ").append(idSolicitud).append("\n");
+
+        int dia = fecha.get(GregorianCalendar.DAY_OF_MONTH);
+        int mes = fecha.get(GregorianCalendar.MONTH) + 1;
+        int anio = fecha.get(GregorianCalendar.YEAR);
+        String fechaFormateada = String.format("%02d/%02d/%04d", dia, mes, anio);
+        sb.append("Fecha: ").append(fechaFormateada).append("\n");
+
+        sb.append("Estado: ").append(estado).append("\n");
+        sb.append("Solicitante: ").append(solicitante.getNombre()).append("\n");
+
+        if (aprobador != null) {
+            sb.append("Aprobador: ").append(aprobador.getNombre()).append("\n");
+        }
+
+        sb.append("\n--- Items ---\n");
+        for (ItemSolicitud item : items) {
+            sb.append(item.toString()).append("\n");
+        }
+
+        sb.append("\nTotal: ").append(calcularTotal()).append("\n");
+        return sb.toString();
+    }
 
 }
