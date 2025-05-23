@@ -1,6 +1,9 @@
 package ec.edu.ups.poo.ventanasMain;
 
 
+import ec.edu.ups.poo.VentanaProveedor.VentanaProveedor;
+import ec.edu.ups.poo.ventanaBusquedas.VentanaBusquedaProveedor;
+import ec.edu.ups.poo.ventanasMostrar.VentanaMostrarProveedores;
 import ec.edu.ups.poo.ventanasSolicitudes.VentanaAprobarRechazarSolicitud;
 
 
@@ -141,7 +144,7 @@ public class VentanaGerenteCompras extends Frame {
 
     private void registrarProveedor() {
         System.out.println(">> Acción: Registrar Proveedor");
-        //new VentanaProveedor(this, proveedores);
+        new VentanaProveedor(this, proveedores);
         dispose();
     }
 
@@ -153,7 +156,7 @@ public class VentanaGerenteCompras extends Frame {
 
     private void verListaProveedores() {
         System.out.println(">> Acción: Ver lista de proveedores");
-        //new VentanaMostrarProveedores(this, proveedores, productos,productosAlimento, productosTecnologia);
+        new VentanaMostrarProveedores(this, proveedores, productos,productosAlimento, productosTecnologia);
         setVisible(false);
     }
 
@@ -165,7 +168,7 @@ public class VentanaGerenteCompras extends Frame {
 
     private void buscarProveedorPorId() {
         System.out.println(">> Acción: Buscar Proveedor por ID");
-        //new VentanaBusquedaProveedor(this, proveedores);
+        new VentanaBusquedaProveedor(this, proveedores);
         setVisible(false);
     }
 
