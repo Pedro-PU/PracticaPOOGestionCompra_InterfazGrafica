@@ -3,7 +3,6 @@ package ec.edu.ups.poo.ventanaBusquedas;
 import ec.edu.ups.poo.clases.SolicitudCompra;
 import java.awt.*;
 import java.awt.event.*;
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 public class VentanaBuscarSolicitud extends Frame {
@@ -107,22 +106,19 @@ public class VentanaBuscarSolicitud extends Frame {
     }
 
     private void buscarSolicitud() {
-        String id = txtBuscar.getText().trim();
-        SolicitudCompra encontrada = null;
-        for (SolicitudCompra s : solicitudes) {
-            if (s.getIdSolicitud().equalsIgnoreCase(id)) {
-                encontrada = s;
+        String idBuscado = txtBuscar.getText().trim();
+        boolean encontrada = false;
+
+        for (SolicitudCompra solicitud : solicitudes) {
+            if (solicitud.getIdSolicitud().equalsIgnoreCase(idBuscado)) {
+                areaResultado.setText(solicitud.toString());
+                encontrada = true;
                 break;
             }
         }
-        if (encontrada != null) {
-            areaResultado.setText("ID: " + encontrada.getIdSolicitud() + "\n"
-                    + "Fecha: " + new SimpleDateFormat("yyyy-MM-dd").format(encontrada.getFecha().getTime()) + "\n"
-                    + "Estado: " + encontrada.getEstado() + "\n"
-                    + "Solicitante: " + encontrada.getSolicitante().getNombre() + "\n"
-                    + "Total: " + encontrada.calcularTotal());
-        } else {
-            areaResultado.setText("Solicitud no encontrada.");
+
+        if (!encontrada) {
+            areaResultado.setText("No se encontró ninguna solicitud con ID: " + idBuscado);
         }
     }
 }
