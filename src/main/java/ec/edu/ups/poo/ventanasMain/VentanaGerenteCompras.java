@@ -4,13 +4,14 @@ package ec.edu.ups.poo.ventanasMain;
 import ec.edu.ups.poo.VentanaProveedor.VentanaProveedor;
 import ec.edu.ups.poo.ventanaBusquedas.VentanaBusquedaProveedor;
 import ec.edu.ups.poo.ventanasMostrar.VentanaMostrarProveedores;
+
+
 import ec.edu.ups.poo.ventanasSolicitudes.VentanaAprobarRechazarSolicitud;
 
 
 import java.awt.*;
 import java.awt.event.*;
 import ec.edu.ups.poo.clases.*;
-
 
 import java.util.List;
 
