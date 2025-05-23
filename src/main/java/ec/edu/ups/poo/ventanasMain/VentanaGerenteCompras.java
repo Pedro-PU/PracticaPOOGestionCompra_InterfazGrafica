@@ -1,13 +1,11 @@
 package ec.edu.ups.poo.ventanasMain;
 
-
 import ec.edu.ups.poo.ventanasSolicitudes.VentanaAprobarRechazarSolicitud;
 
 
 import java.awt.*;
 import java.awt.event.*;
 import ec.edu.ups.poo.clases.*;
-
 
 import java.util.List;
 
