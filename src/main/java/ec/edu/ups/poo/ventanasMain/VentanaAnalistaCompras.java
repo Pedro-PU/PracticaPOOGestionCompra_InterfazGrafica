@@ -1,11 +1,28 @@
 package ec.edu.ups.poo.ventanasMain;
 
+import ec.edu.ups.poo.ventanaBusquedas.VentanaBuscarSolicitud;
+import ec.edu.ups.poo.ventanasSolicitudes.VentanaSolicitudCompra;
+import ec.edu.ups.poo.clases.*;
+import ec.edu.ups.poo.ventanasListar.VentanaListarSolicitudes;
+
 import java.awt.*;
 import java.awt.event.*;
+import java.util.List;
 
 public class VentanaAnalistaCompras extends Frame {
+    private Empleado empleadoActual;
+    private List<Producto> productos;
+    private List<SolicitudCompra> solicitudes;
+    private Frame ventanaAnterior;
 
-    public VentanaAnalistaCompras() {
+    public VentanaAnalistaCompras(Frame ventanaAnterior, Empleado empleadoActual, List<Producto> productos, List<SolicitudCompra> solicitudes) {
+        this.ventanaAnterior = ventanaAnterior;
+        this.empleadoActual = empleadoActual;
+        this.productos = productos;
+        this.solicitudes = solicitudes;
+
+        Color azul = new Color(87, 124, 178);// Asignar un color
+
         setTitle("Analista de Compras");
         setSize(1500, 800);
         setLocationRelativeTo(null);
@@ -13,9 +30,17 @@ public class VentanaAnalistaCompras extends Frame {
         setResizable(false);
 
         // Título
+        Panel panelTitulo = new Panel(new GridLayout(2,1));
         Label titulo = new Label("MENÚ DE SOLICITUDES", Label.CENTER);
-        titulo.setFont(new Font("Arial", Font.BOLD, 28));
-        add(titulo, BorderLayout.NORTH);
+        panelTitulo.setPreferredSize(new Dimension(1500, 230));
+        titulo.setFont(new Font("Arial", Font.BOLD, 50));
+        titulo.setForeground(Color.white);
+        panelTitulo.setBackground(azul);
+        Panel panelTitulo2 = new Panel(new FlowLayout(FlowLayout.CENTER));
+        panelTitulo2.setBackground(Color.white);
+        panelTitulo.add(titulo);
+        panelTitulo.add(panelTitulo2);
+        add(panelTitulo, BorderLayout.NORTH);
 
         // Panel central
         Panel panelCentral = new Panel(new GridLayout(3, 1, 5, 5));
@@ -61,12 +86,13 @@ public class VentanaAnalistaCompras extends Frame {
 
         // Botón Volver
         Panel panelInferior = new Panel(new FlowLayout(FlowLayout.CENTER));
+        panelInferior.setBackground(Color.lightGray);
         Button btnVolver = new Button("Volver");
         btnVolver.setFont(new Font("Arial", Font.BOLD, 14));
         btnVolver.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new VentanaPrincipal();
+                ventanaAnterior.setVisible(true); // Regresar a la anterior
                 dispose();
             }
         });
@@ -79,7 +105,7 @@ public class VentanaAnalistaCompras extends Frame {
         // Cierre correcto
         addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
-                VentanaPrincipal ventanaPrincipal = new VentanaPrincipal();
+                ventanaAnterior.setVisible(true); // Regresar a la anterior
                 dispose();
             }
         });
@@ -90,16 +116,24 @@ public class VentanaAnalistaCompras extends Frame {
     // Métodos de ejemplo para acciones
     private void crearSolicitud() {
         System.out.println(">> Acción: Crear solicitud de compra");
-        // Aquí va la lógica real
+
+        setVisible(false);
+        new VentanaSolicitudCompra(empleadoActual, productos, solicitudes, this);
     }
 
     private void listarSolicitudes() {
         System.out.println(">> Acción: Listar solicitudes de compra");
-        // Aquí va la lógica real
+        setVisible(false);
+        new VentanaListarSolicitudes(solicitudes, this);
     }
 
     private void buscarSolicitud() {
         System.out.println(">> Acción: Buscar solicitud por número");
-        // Aquí va la lógica real
+        setVisible(false);
+        new VentanaBuscarSolicitud(solicitudes, this);
+    }
+
+    public Empleado getEmpleadoActual() {
+        return empleadoActual;
     }
 }
