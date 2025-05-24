@@ -131,11 +131,20 @@ public class VentanaProveedor extends Frame {
 
         add(panelInferior, BorderLayout.SOUTH);
 
-        // Listeners
-        btnGuardar.addActionListener(e -> registrarProveedor());
-        btnVolver.addActionListener(e -> {
-            ventanaAnterior.setVisible(true);
-            dispose();
+        // Botones
+        btnGuardar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                registrarProveedor();
+            }
+        });
+
+        btnVolver.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ventanaAnterior.setVisible(true);
+                dispose();
+            }
         });
 
         addWindowListener(new WindowAdapter() {
