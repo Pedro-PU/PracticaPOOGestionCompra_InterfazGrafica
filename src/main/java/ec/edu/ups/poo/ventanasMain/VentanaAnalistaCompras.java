@@ -113,7 +113,7 @@ public class VentanaAnalistaCompras extends Frame {
         setVisible(true);
     }
 
-    // Métodos de ejemplo para acciones
+    // Métodos para acciones
     private void crearSolicitud() {
         System.out.println(">> Acción: Crear solicitud de compra");
 
