@@ -2,10 +2,14 @@ package ec.edu.ups.poo.ventanasMain;
 
 
 import ec.edu.ups.poo.VentanaProveedor.VentanaProveedor;
+import ec.edu.ups.poo.ventanaBusquedas.VentanaBusquedaAlimento;
 import ec.edu.ups.poo.ventanaBusquedas.VentanaBusquedaProveedor;
+import ec.edu.ups.poo.ventanaBusquedas.VentanaBusquedaTecnologia;
+import ec.edu.ups.poo.ventanasMostrar.VentanaMostrarProductos;
 import ec.edu.ups.poo.ventanasMostrar.VentanaMostrarProveedores;
 
 
+import ec.edu.ups.poo.ventanasProducto.VentanaProducto;
 import ec.edu.ups.poo.ventanasSolicitudes.VentanaAprobarRechazarSolicitud;
 
 
@@ -151,7 +155,7 @@ public class VentanaGerenteCompras extends Frame {
 
     private void registrarProducto() {
         System.out.println(">> Acción: Registrar Producto");
-        //new VentanaProducto(this, proveedores, productosAlimento, productosTecnologia, productos);
+        new VentanaProducto(this, proveedores, productosAlimento, productosTecnologia, productos);
         setVisible(false);
     }
 
@@ -163,7 +167,7 @@ public class VentanaGerenteCompras extends Frame {
 
     private void verListaProductos() {
         System.out.println(">> Acción: Ver lista de productos");
-        //new VentanaMostrarProductos(this, productosTecnologia, productosAlimento);
+        new VentanaMostrarProductos(this, productosTecnologia, productosAlimento);
         setVisible(false);
     }
 
@@ -175,13 +179,13 @@ public class VentanaGerenteCompras extends Frame {
 
     private void buscarProductoAlimento() {
         System.out.println(">> Acción: Buscar Producto Alimento por Nombre");
-        //new VentanaBusquedaAlimento(this, productosAlimento);
+        new VentanaBusquedaAlimento(this, productosAlimento);
         setVisible(false);
     }
 
     private void buscarProductoTecnologia() {
         System.out.println(">> Acción: Buscar Producto Tecnología por Nombre");
-        //new VentanaBusquedaTecnologia(this, productosTecnologia);
+        new VentanaBusquedaTecnologia(this, productosTecnologia);
         setVisible(false);
     }
 

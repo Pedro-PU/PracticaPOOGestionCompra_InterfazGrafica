@@ -191,7 +191,8 @@ public class VentanaProductoAlimento extends Frame {
         btnVolver.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                ventanaAnterior.setVisible(true);
+                dispose();
             }
         });
 
