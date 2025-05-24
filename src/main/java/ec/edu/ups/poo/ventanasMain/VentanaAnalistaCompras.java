@@ -132,8 +132,4 @@ public class VentanaAnalistaCompras extends Frame {
         setVisible(false);
         new VentanaBuscarSolicitud(solicitudes, this);
     }
-
-    public Empleado getEmpleadoActual() {
-        return empleadoActual;
-    }
 }
