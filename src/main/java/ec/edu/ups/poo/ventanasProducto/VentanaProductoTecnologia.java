@@ -134,6 +134,43 @@ public class VentanaProductoTecnologia extends Frame {
         btnAgregar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                String codigo = textFieldID.getText().trim();
+                String nombre = textFieldNombre.getText().trim();
+                String precioStr = textFieldPrecio.getText().trim();
+                String gama = textFieldGama.getText().trim();
+                String proveedorID = textFieldProveedorID.getText().trim();
+
+                if (codigo.isEmpty() || nombre.isEmpty() || precioStr.isEmpty() || gama.isEmpty() || proveedorID.isEmpty()) {
+                    textFieldEstado.setText("Complete todos los campos.");
+                    return;
+                }
+
+                double precioUnitario = Double.parseDouble(precioStr);
+
+                Proveedor proveedor = null;
+                for (Proveedor p : proveedores) {
+                    if (p.getIdPersona().equals(proveedorID)) {
+                        proveedor = p;
+                        break;
+                    }
+                }
+
+                if (proveedor != null) {
+                    ProductoTecnologia nuevoProducto = new ProductoTecnologia(codigo, nombre, precioUnitario, proveedor, gama);
+                    productosTecnologia.add(nuevoProducto);
+                    productos.add(nuevoProducto);
+                    proveedor.agregarProducto(nuevoProducto);
+
+                    textFieldID.setText("");
+                    textFieldNombre.setText("");
+                    textFieldPrecio.setText("");
+                    textFieldGama.setText("");
+                    textFieldProveedorID.setText("");
+
+                    textFieldEstado.setText("Producto agregado correctamente.");
+                } else {
+                    textFieldEstado.setText("Proveedor no encontrado.");
+                }
             }
         });
 
