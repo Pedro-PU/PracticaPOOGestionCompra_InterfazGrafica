@@ -139,7 +139,51 @@ public class VentanaProductoAlimento extends Frame {
         btnAgregar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                String codigo = textFieldID.getText().trim();
+                String nombre = textFieldNombre.getText().trim();
+                String precioStr = textFieldPrecio.getText().trim();
+                String pesoStr = textFieldPeso.getText().trim();
+                String proveedorID = textFieldProveedorID.getText().trim();
 
+                // Validación: verificar que no haya campos vacíos
+                if (codigo.isEmpty() || nombre.isEmpty() || precioStr.isEmpty() || pesoStr.isEmpty() || proveedorID.isEmpty()) {
+                    System.out.println("Por favor, complete todos los campos.");
+                    textFieldEstado.setText("Complete todos los campos.");
+                    return;
+                }
+
+                // Conversión
+                double precioUnitario = Double.parseDouble(precioStr);
+                double peso = Double.parseDouble(pesoStr);
+
+                // Buscar proveedor con idPersona igual al ingresado
+                Proveedor proveedor = null;
+                for (Proveedor p : proveedores) {
+                    if (p.getIdPersona().equals(proveedorID)) {
+                        proveedor = p;
+                        break;
+                    }
+                }
+
+                if (proveedor != null) {
+                    ProductoAlimento nuevoProducto = new ProductoAlimento(codigo, nombre, precioUnitario, proveedor, peso);
+                    productosAlimento.add(nuevoProducto);
+                    productos.add(nuevoProducto);
+                    proveedor.agregarProducto(nuevoProducto);
+
+                    // Limpiar campos
+                    textFieldID.setText("");
+                    textFieldNombre.setText("");
+                    textFieldPrecio.setText("");
+                    textFieldPeso.setText("");
+                    textFieldProveedorID.setText("");
+
+                    textFieldEstado.setText("Producto agregado correctamente.");
+                    System.out.println("Producto agregado correctamente.");
+                } else {
+                    System.out.println("Proveedor no encontrado.");
+                    textFieldEstado.setText("Proveedor no encontrado.");
+                }
             }
         });
 

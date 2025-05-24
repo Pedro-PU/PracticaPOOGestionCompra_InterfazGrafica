@@ -66,7 +66,9 @@ public class VentanaProducto extends Frame {
         botonAlimentos.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                new VentanaProductoAlimento(VentanaProducto.this, proveedores, productosAlimento,
+                        productos);
+                dispose();
             }
         });
 
@@ -90,7 +92,8 @@ public class VentanaProducto extends Frame {
         botonTecnologia.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                new VentanaProductoTecnologia(VentanaProducto.this, proveedores, productosTecnologia,productos);
+                setVisible(false);
             }
         });
 
