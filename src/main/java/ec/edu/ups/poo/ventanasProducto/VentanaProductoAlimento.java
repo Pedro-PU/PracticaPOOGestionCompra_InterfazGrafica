@@ -14,7 +14,7 @@ import java.awt.event.ActionListener;
 
 public class VentanaProductoAlimento extends Frame {
 
-    private Button btnAgregar, btnVolver, btnMostrarProveedores;
+    private Button btnAgregar, btnVolver;
     private TextField textFieldID, textFieldNombre, textFieldPrecio, textFieldPeso,
             textFieldProveedorID, textFieldEstado;
     private List<ProductoAlimento> productosAlimento;
@@ -111,8 +111,6 @@ public class VentanaProductoAlimento extends Frame {
         // Panel inferior con botones de acción
         Panel panelInferior = new Panel(new FlowLayout(FlowLayout.CENTER, 20, 10));
         panelInferior.setBackground(Color.lightGray);
-        btnMostrarProveedores = new Button("Mostrar Proveedores");
-        btnMostrarProveedores.setFont(new Font("Arial", Font.PLAIN, 18));
         btnAgregar = new Button("Agregar Producto");
         btnAgregar.setFont(new Font("Arial", Font.PLAIN, 18));
         btnVolver = new Button("Volver");
@@ -121,19 +119,11 @@ public class VentanaProductoAlimento extends Frame {
         etiquetaEstado.setFont(new Font("Arial", Font.PLAIN, 18));
         textFieldEstado = new TextField(" En proceso ... ", 20);
         textFieldEstado.setEditable(false);
-        panelInferior.add(btnMostrarProveedores);
         panelInferior.add(btnAgregar);
         panelInferior.add(btnVolver);
         panelInferior.add(etiquetaEstado);
         panelInferior.add(textFieldEstado);
 
-        // ActionListener para el botón "Mostrar Proveedores
-        btnMostrarProveedores.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
 
         // ActionListener para el botón "Agregar Producto"
         btnAgregar.addActionListener(new ActionListener() {

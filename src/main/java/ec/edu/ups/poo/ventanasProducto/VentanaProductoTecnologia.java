@@ -14,7 +14,7 @@ import java.util.List;
 
 public class VentanaProductoTecnologia extends Frame {
 
-    private Button btnAgregar, btnVolver, btnMostrarProveedores;
+    private Button btnAgregar, btnVolver;
     private TextField textFieldID, textFieldNombre, textFieldPrecio, textFieldGama, textFieldProveedorID, textFieldEstado;
     private Frame ventanaAnterior;
     private List<Proveedor> proveedores;
@@ -108,8 +108,6 @@ public class VentanaProductoTecnologia extends Frame {
         // Inferior
         Panel panelInferior = new Panel(new FlowLayout(FlowLayout.CENTER, 20, 10));
         panelInferior.setBackground(Color.lightGray);
-        btnMostrarProveedores = new Button("Mostrar Proveedores");
-        btnMostrarProveedores.setFont(new Font("Arial", Font.PLAIN, 18));
         btnAgregar = new Button("Agregar Producto");
         btnAgregar.setFont(new Font("Arial", Font.PLAIN, 18));
         btnVolver = new Button("Volver");
@@ -118,18 +116,11 @@ public class VentanaProductoTecnologia extends Frame {
         etiquetaEstado.setFont(new Font("Arial", Font.PLAIN, 18));
         textFieldEstado = new TextField(" En proceso ... ", 20);
         textFieldEstado.setEditable(false);
-        panelInferior.add(btnMostrarProveedores);
         panelInferior.add(btnAgregar);
         panelInferior.add(btnVolver);
         panelInferior.add(etiquetaEstado);
         panelInferior.add(textFieldEstado);
 
-        btnMostrarProveedores.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new VentanaListaProveedores(proveedores);
-            }
-        });
 
         btnAgregar.addActionListener(new ActionListener() {
             @Override
