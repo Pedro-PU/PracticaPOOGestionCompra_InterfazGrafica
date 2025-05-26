@@ -2,7 +2,6 @@ package ec.edu.ups.poo.ventanasProducto;
 
 import ec.edu.ups.poo.clases.Producto;
 import ec.edu.ups.poo.clases.Proveedor;
-import ec.edu.ups.poo.ventanasListar.VentanaListaProveedores;
 import ec.edu.ups.poo.clases.ProductoAlimento;
 
 import java.awt.*;
